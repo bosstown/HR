@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter a string of text and watch it be reversed.\n");
+		System.out.println("This program will also tell you if the string you entered is Palidrome.\n");
+		String input = sc.nextLine();
+
+		reverse(input);
+		sc.close();
+
+	}
+
+	static void reverse(String input) {
+		// Converts String to char array,
+		// for manipulation.
+		char[] array = input.toCharArray(); 
+						
+		// Holds length of string
+		int y = array.length; 
+		char[] reversed = new char[y];
+		// Goes down 1 int, to comply with array bounds.
+		y--; 
+		
+		// Reverses char array
+		for (int x = 0; x < array.length; x++) { 
+			// as x increases, y decreases
+			reversed[x] = array[y]; 
+			y--;
+		}
+		// Turns array of chars back to
+		// String, reversed.
+		String result = new String(reversed); 
+												
+		System.out.println(input + " backwards is " + result);
+		if (result.equals(input) == true) {
+			System.out.println("Yes, this word is Palidrome");
+
+		}
+
+	}
+
+}
